@@ -82,7 +82,7 @@
 //fn(a[0], a[1], a[2]); //1 2 3 전개연산자가 없을땐 이렇게 일일이 적어야하지만 알고있다면
 //fn(...a); //1 2 3
 
-// 구조 분해 할당
+//  ## 구조 분해 할당
 
 //const arr = [1, 2, 3];
 //const a = arr[0];
@@ -305,19 +305,103 @@ console.log(getCity(userB));
 
 // **SWITCH 조건문**
 
-switch (조건) {
-  case 값1:
-    // 조건이 '갑1'일 때 실행
-    break;
-  case 값2:
-    // 조건이 '값2'일 때 실행
-    break;
-  default:
-  // 조건이 '값1'도 '값2'도 아닐 때 실행
-}
+//switch (조건) {
+//case 값1:
+// 조건이 '갑1'일 때 실행
+//break;
+//case 값2:
+// 조건이 '값2'일 때 실행
+//break;
+//default:
+// 조건이 '값1'도 '값2'도 아닐 때 실행
+//}
 
 //주의 할 점
 //스위치문 같은 경우 내부에 case, break, default라는 키워드를 사용
 //스위치를 통해 조건을 추가하고 조건이 특정한 값에 해당하면 해당하는 값의 case코드가 실행
 //case 값?: 이후 꼭 콜론(:)기호를 붙여줘야함
 //case이후 꼭 break를 적어주자. break키워드가 없으면 조건이 값1인 경우를 확인하고 그 다음으로 넘어가기때문
+
+// switch 조건문 예제
+
+//function price(fruit) {
+//switch (fruit) {
+//case "apple":
+//p = 1000;
+//break;
+//case "banana":
+//p = 1500;
+//break;
+//case "cherry":
+//p = 2000;
+//break;
+//default:
+//p = 0;
+//}
+
+//return p;
+//}
+
+//console.log(price("apple")); // 1000
+//console.log(price("banana")); // 1500
+//console.log(price("cherry")); // 2000
+//console.log(price("pineapple")); // 0
+
+// 상황에 따라 break키워드를 제거하고 p값 대신 바로 return을 넣을수도 있다
+
+//function price(fruit) {
+//   switch (fruit) {
+//     case "apple":
+//       return 1000;
+//     case "banana":
+//       return 1500;
+//     case "cherry":
+//       return 2000;
+//     default:
+//       return 0;
+//   }
+//}
+
+// console.log(price("apple")); // 1000
+// console.log(price("banana")); // 1500
+// console.log(price("cherry")); // 2000
+// console.log(price("pineapple")); // 0
+
+//다른 버전 (취향에 따라 위 버전 아래 버전 골라서 사용하자.)
+
+function price(fruit) {
+  if (fruit === "apple") {
+    return 1000;
+  } else if (fruit === "banana") {
+    return 1500;
+  } else if (fruit === "cherry") {
+    return 2000;
+  } else {
+    return 0;
+  }
+}
+console.log(price("apple")); // 1000
+console.log(price("banana")); // 1500
+console.log(price("cherry")); // 2000
+console.log(price("pineapple")); // 0
+
+// **FOR 반복문 **
+
+// for (초기화; 조건; 증감) {
+//   //반복 실행할 코드
+// }
+
+for (let i = 0; i < 10; i += 1) {
+  console.log(i);
+  //i는 0으로 시작하고 10보다 작으면 반복되는데 한번 반복되면 1이 증가되는 구조
+}
+// main.js:395 0
+// main.js:395 1
+// main.js:395 2
+// main.js:395 3
+// main.js:395 4
+// main.js:395 5
+// main.js:395 6
+// main.js:395 7
+// main.js:395 8
+// main.js:395 9
