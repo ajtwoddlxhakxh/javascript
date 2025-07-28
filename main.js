@@ -301,4 +301,24 @@ console.log(getCity(userB));
 //}
 //}
 
-console.log(isPositive(0)); //카와이
+//console.log(isPositive(0)); //카와이
+
+// **SWITCH 조건문**
+
+switch (조건) {
+  case 값1:
+    // 조건이 '갑1'일 때 실행
+    break;
+  case 값2:
+    // 조건이 '값2'일 때 실행
+    break;
+  default:
+  // 조건이 '값1'도 '값2'도 아닐 때 실행
+}
+
+//주의 할 점
+//스위치문 같은 경우 내부에 case, break, default라는 키워드를 사용
+//스위치를 통해 조건을 추가하고 조건이 특정한 값에 해당하면 해당하는 값의 case코드가 실행
+//case 값?: 이후 꼭 콜론(:)기호를 붙여줘야함
+//case이후 꼭 break를 적어주자. break키워드가 없으면 조건이 값1인 경우를 확인하고 그 다음으로 넘어가기때문
+/////////nugyf5tuihyfty
