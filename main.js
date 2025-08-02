@@ -83,6 +83,7 @@
 //fn(...a); //1 2 3
 
 //  ## 구조 분해 할당
+//  ## 구조 분해 할당
 
 //const arr = [1, 2, 3];
 //const a = arr[0];
@@ -315,6 +316,16 @@ console.log(getCity(userB));
 //default:
 // 조건이 '값1'도 '값2'도 아닐 때 실행
 //}
+//switch (조건) {
+//case 값1:
+// 조건이 '갑1'일 때 실행
+//break;
+//case 값2:
+// 조건이 '값2'일 때 실행
+//break;
+//default:
+// 조건이 '값1'도 '값2'도 아닐 때 실행
+//}
 
 //주의 할 점
 //스위치문 같은 경우 내부에 case, break, default라는 키워드를 사용
@@ -433,34 +444,192 @@ console.log(getCity(userB));
 // main.js:429 banana
 // main.js:429 cherry
 
-const fruits = ["apple", "banana", "cherry"];
+// const fruits = ["apple", "banana", "cherry"];
 
-for (const a of fruits) {
-  console.log(a);
-}
+// for (const a of fruits) {
+//   console.log(a);
+// }
 // main.js:439 apple
 // main.js:439 banana
 // main.js:439 cherry
 
-const users = [
-  {
-    name: "osori",
-    age: 22,
-  },
-  {
-    name: "sori",
-    age: 20,
-  },
-  {
-    name: "ori",
-    age: 21,
-  },
-];
+// const users = [
+//   {
+//     name: "osori",
+//     age: 22,
+//   },
+//   {
+//     name: "sori",
+//     age: 20,
+//   },
+//   {
+//     name: "ori",
+//     age: 21,
+//   },
+// ];
 
-for (let i = 0; i < users.length; i += 1) {
-  console.log(users[i]);
-}
+// for (let i = 0; i < users.length; i += 1) {
+//   console.log(users[i]);
+// }
 
-for (const user of users) {
-  console.log(user);
-}
+// for (const user of users) {
+//   console.log(user);
+// }
+// 출력결과는 모두 객체이다 그래서 점표기법을 사용가능
+
+// const users = [
+//   {
+//     name: "osori",
+//     age: 22,
+//   },
+//   {
+//     name: "sori",
+//     age: 20,
+//   },
+//   {
+//     name: "ori",
+//     age: 21,
+//   },
+// ];
+
+// for (let i = 0; i < users.length; i += 1) {
+//   console.log(users[i].name);
+// }
+
+// for (const user of users) {
+//   console.log(user);
+// }
+
+// **for & for of 반복문 차이점**
+
+// const arr = ['x', 'y', 'z'];
+
+// for
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(i, arr[i]);  // 인덱스 필요할 때
+// }
+
+// 0 x / 1 y / 2 x
+
+// for...of
+// for (const value of arr) {
+//   console.log(value);  // 값만 필요할 때
+// }
+
+// x y z
+
+// for 반복문
+//인덱스를 직접 제어가능 (i 사용)
+// 반복 횟수를 세거나 일부만 반복할 때 유리
+// 모든 배열/객체에서 가능하지만 복잡해짐
+
+//for of 반복문
+//이터러블 객체(배열, 문자열, Set, Map 등)만 사용 가능
+// 값(value)에 바로 접근 (인덱스 필요 없음)
+// 더 간결하고 직관적
+
+//이터리블: 하나씩 순서대로 꺼낼 수 있는 값들의 모음
+//ex)
+//배열
+//const arr = [10, 20, 30];
+
+// for (const num of arr) {
+//   console.log(num);
+// }
+
+//10
+//20
+//30
+
+//문자열
+// const word = "hi";
+
+// for (const char of word) {
+//   console.log(char);
+// }
+
+//h
+//i
+
+//이어서
+// **for in 반복문**
+
+// const user = {
+//   name: "osori",
+//   age: 22,
+//   isValid: true,
+//   email: "a01024784424@gmail.com",
+// };
+
+//for (const key in user) {
+//console.log(key);
+//main.js:565 isValid
+// main.js:568 true
+// main.js:565 email
+// main.js:568 a01024784424@gmail.com
+//console.log(user[key]);
+//main.js:565 name
+// main.js:568 osori
+// main.js:565 age
+// main.js:568 22
+//}
+
+// console.log(user.name);
+// console.log(user.age);
+
+// console.log(user["name"]);
+//console.log(user[key]); //main.js:581  Uncaught ReferenceError: key is not defined at main.js:581:18 key가 정의안되서 에러가 남 그래서 키를 정의 해준 위에선 에러없이 작동
+// 여기서 헷갈린점
+// '[]'대괄호 어떨때 사용해야하는지
+// 객체 속성 접근, 배열 요소 접근, 문자열 문자 접근 시 사용가능
+//map, set은 대괄호 XX
+
+// **while 반복문**
+
+// let n = 0;
+// while (조건) {
+//   console.log(조건);
+// }
+
+// let n = 0;
+// while (n < 4) {
+//   console.log(n);
+//   n += 1;
+// }
+//while문은 기본적으로 계속 반복이 되고 조건이 거짓이 되야 멈출수있다. 조건이 거짓이 안되면 무한반복이 되어 브라우저가 튕길수도..
+
+// **Do while 반복문**
+
+//let n = 0;
+// while (n) {
+//   console.log(n)
+// }
+
+// 위 예제는 콘솔창에 아무것도 출력이 안된다. 왜? 0은 대표적인 거짓이니깐 이때 이걸 콘솔창에 출력시킬려면 어떻게 해야할까
+// 아래 예제를 봐보자
+
+//let n = 0;
+
+// do {
+//   console.log(n);
+// } while (n);
+
+// 0
+//do while 반복문은 조건을 먼저 보지않고 do라는 키워드를 가진 부분의 중괄호 블럭을 먼저 실행한다. 그래서 숫자 0이 출력됨.
+//그 다음에 while키워드로 넘어가서 조건을 보는데 조건에 해당하는 n = 0 거짓이니깐 중괄호를 다 실행 하지않아서 하나만 출력됨.
+
+//다른 예제
+
+//let n = 0;
+
+do {
+  console.log(n);
+  n += 1;
+} while (n < 4);
+
+// 우선 0에서 출발, 콘솔로그 n을 통해서 숫자 0이 출력되고 그 다음에 변수 n에다가 1이 더해지고 그다음에 조건으로 넘어감. n의값이 4보다 작을땐 이 과정이 반복됨.
+
+// main.js:622 0
+// main.js:622 1
+// main.js:622 2
+// main.js:622 3
