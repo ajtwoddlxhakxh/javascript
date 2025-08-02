@@ -622,10 +622,10 @@ console.log(getCity(userB));
 
 //let n = 0;
 
-do {
-  console.log(n);
-  n += 1;
-} while (n < 4);
+// do {
+//   console.log(n);
+//   n += 1;
+// } while (n < 4);
 
 // 우선 0에서 출발, 콘솔로그 n을 통해서 숫자 0이 출력되고 그 다음에 변수 n에다가 1이 더해지고 그다음에 조건으로 넘어감. n의값이 4보다 작을땐 이 과정이 반복됨.
 
@@ -633,3 +633,33 @@ do {
 // main.js:622 1
 // main.js:622 2
 // main.js:622 3
+
+// **함수 (FUnction)**
+
+// 함수 선언문(declaration)
+// function hello() {}
+
+// 함수 표현식(expression)
+
+// const hello = function () {};
+
+//함수 선언문과 함수 표현식은 생김새가 다른게 아니고 호이스팅이라는 개념에서 차이점이 발생함
+
+//호이스팅
+
+// function hello() {
+//   console.log("안녕");
+// }
+
+// hello(); //안녕
+
+//만약 함수 hello부분을 잘라서 호출하는 hello();보다 아래에 작성하면 어떨까
+//이런식으로
+
+hello();
+
+function hello() {
+  console.log("안녕");
+}
+
+// 자 보통 코드는 위에서 부터 아래로 작성 및 해석을 해.
