@@ -369,32 +369,34 @@ console.log(getCity(userB));
 
 //다른 버전 (취향에 따라 위 버전 아래 버전 골라서 사용하자.)
 
-function price(fruit) {
-  if (fruit === "apple") {
-    return 1000;
-  } else if (fruit === "banana") {
-    return 1500;
-  } else if (fruit === "cherry") {
-    return 2000;
-  } else {
-    return 0;
-  }
-}
-console.log(price("apple")); // 1000
-console.log(price("banana")); // 1500
-console.log(price("cherry")); // 2000
-console.log(price("pineapple")); // 0
+// function price(fruit) {
+//   if (fruit === "apple") {
+//     return 1000;
+//   } else if (fruit === "banana") {
+//     return 1500;
+//   } else if (fruit === "cherry") {
+//     return 2000;
+//   } else {
+//     return 0;
+//   }
+// }
+// console.log(price("apple")); // 1000
+// console.log(price("banana")); // 1500
+// console.log(price("cherry")); // 2000
+// console.log(price("pineapple")); // 0
 
 // **FOR 반복문 **
+
+//특정 코드를 원하는 횟수만큼 반복해서 실행할 때 사용하는 구문
 
 // for (초기화; 조건; 증감) {
 //   //반복 실행할 코드
 // }
 
-for (let i = 0; i < 10; i += 1) {
-  console.log(i);
-  //i는 0으로 시작하고 10보다 작으면 반복되는데 한번 반복되면 1이 증가되는 구조
-}
+// for (let i = 0; i < 10; i += 1) {
+//   console.log(i);
+//   //i는 0으로 시작하고 10보다 작으면 반복되는데 한번 반복되면 1이 증가되는 구조
+// }
 // main.js:395 0
 // main.js:395 1
 // main.js:395 2
@@ -405,3 +407,60 @@ for (let i = 0; i < 10; i += 1) {
 // main.js:395 7
 // main.js:395 8
 // main.js:395 9
+
+// for (let i = 9; i > -1; i -= 1) {
+//   if (i % 2 === 0) {
+//     continue; //반복문 내에서 현재 반복만 건너뛰고 다음 반복 진행
+//   }
+//   console.log(i);
+// }
+
+// main.js:415 9
+// main.js:415 7
+// main.js:415 5
+// main.js:415 3
+// main.js:415 1
+
+// ** for of 반복문 **
+
+// const fruits = ["apple", "banana", "cherry"];
+
+// for (let i = 0; i < fruits.length; i += 1) {
+//   console.log(fruits[i]);
+// }
+
+// main.js:429 apple
+// main.js:429 banana
+// main.js:429 cherry
+
+const fruits = ["apple", "banana", "cherry"];
+
+for (const a of fruits) {
+  console.log(a);
+}
+// main.js:439 apple
+// main.js:439 banana
+// main.js:439 cherry
+
+const users = [
+  {
+    name: "osori",
+    age: 22,
+  },
+  {
+    name: "sori",
+    age: 20,
+  },
+  {
+    name: "ori",
+    age: 21,
+  },
+];
+
+for (let i = 0; i < users.length; i += 1) {
+  console.log(users[i]);
+}
+
+for (const user of users) {
+  console.log(user);
+}
