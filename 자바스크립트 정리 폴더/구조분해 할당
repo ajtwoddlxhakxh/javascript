@@ -1,0 +1,118 @@
+//  ## 구조 분해 할당
+
+//const arr = [1, 2, 3];
+//const a = arr[0];
+//const b = arr[1];
+//const c = arr[2];
+
+//console.log(a, b, c); // 1 2 3
+
+//이걸 구조 분해 할당 구조로 만들어보자
+
+//const arr = [1, 2, 3];
+//const [a, b, c] = arr;
+
+//console.log(a, b, c); // 1 2 3
+//구조 분해 할당 구조= 객체 혹은 배열 데이터의 구조를 분해해서 그 구조에 맞게 각각의 변수에 맞게 데이터를 할당하는 방식
+
+//let a = 0;
+//let b = 0;
+//let c = 0;
+
+//const arr = [1, 2, 3];
+//[a, b, c] = arr;
+
+//console.log(a, b, c); // 1 2 3
+//만약 b 와 c만 값이 출력됐으면 한다면?
+
+//let b = 0;
+//let c = 0;
+
+//const arr = [1, 2, 3];
+//[, b, c] = arr;
+
+//console.log(b, c); // 2 3  자 특정 데이터 값만 출력될려면
+// const arr = [1, 2, 3];[, b, c] = arr; 여기서 뒤 매개변수 값만 지우고 쉼표는 유지하는게 뽀인트⁕
+// 다른 예제도 예시를 들어보겟다!
+//let b = 0;
+//let c = 0;
+
+//const arr = [1, 2, 3];
+//[, , c] = arr;
+
+//console.log(c);
+
+//const obj = {
+// a: 1,
+//b: 2,
+//c: 3,
+//};
+//const a = obj.a;
+//const b = obj.b;
+//const c = obj.c;
+
+//console.log(a, b, c); //1 2 3
+
+// 이렇게 하면 많은 코드를 써야함
+
+//const obj = {
+//a: 1,
+//b: 2,
+//c: 3,
+//};
+
+//const { a, b } = obj; //꺼내고 싶은 변수만 선택해서 가능 하지만 밑에 콘솔 로그에도 꺼내고 싶은 변수만 기재
+
+//console.log( a, b); // 1
+
+//const { x } = obj;
+
+//console.log(x); //undefined라 뜸 여기서 이 오브젝트 속성안에 abc값은 있지만 x의 값은 없어서 x의 "기본값" 을 지정해줄수 있다
+
+// 적용한 버전
+
+//const { x = 4 } = obj;
+
+//console.log(x); //4
+//만약 오브젝트 속에 x값이 존재한다면
+//const obj = {
+//a: 1,
+//b: 2,
+//c: 3,
+//x: 7,
+//};
+
+//const { x = 4 } = obj;
+//console.log(x); //7
+// 자 추가로 a라는 데이터를 꺼내쓸려고 한다고 가정해보자
+
+//const { x = 4, a } = obj;
+
+//console.log(x, a); // 7 1
+// 그런데 a의 변수명이 마음에 들지않아 그래서 바꿀려함
+
+//const { x = 4, a: osori } = obj;
+
+//console.log(x, a); // 하면 에러가 납니다. 왜? 변수명은 a인데 a에서 osori로 이름을 바꿨으니 찾지 못해서 에러가 남 고쳐보자
+
+//console.log(x, osori); // 7 1
+
+// 자 다른 예제를 봐보자
+
+//const obj = {
+//a: 1,
+//b: 2,
+//c: 3,
+//x: 7,
+//y: 100,
+//};
+
+//const { c, rest } = obj;
+
+//console.log(c, rest); //3 undefined
+//rest라는 속성의 이름을 찾을수없어서 undefined가 나옴 그런데 rest앞에 전개연사자를 사용해주면
+
+//const { c, ...rest } = obj;
+
+//console.log(c, rest);    // 3 {a: 1, b: 2, x: 7, y: 100}
+// c라는 속성을 제외한 나머지 속성들이 전개연산자를 통해서 rest라는 이름의 변수로 할당되어 사용되는걸 볼 수 있음.

@@ -83,7 +83,6 @@
 //fn(...a); //1 2 3
 
 //  ## 구조 분해 할당
-//  ## 구조 분해 할당
 
 //const arr = [1, 2, 3];
 //const a = arr[0];
@@ -967,10 +966,3 @@ function sum(...rest) {
   }, 0)
 }
 
-console.log(sum(1,2)) //3 ,(2) [1, 2], Arguments(2) [1, 2, callee: (...), Symbol(Symbol.iterator): ƒ]
-console.log(sum(1,2,3,4)) //10 ,(4) [1, 2, 3, 4], Arguments(4) [1, 2, 3, 4, callee: (...), Symbol(Symbol.iterator): ƒ]
-console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55 ,(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], Arguments(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, callee: (...), Symbol(Symbol.iterator): ƒ]
-
-//argurments = 유사배열객체
-//이걸쓰면 마치 배열데이터처럼 출력이 되지만 배열데이터는 아님. 
-//arguments는 따로 지정을 안해도 언제든지 함수 내부에서 쓸 수있는 객체이다.

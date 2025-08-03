@@ -1,0 +1,53 @@
+// *If 조건문*
+
+//if (조건) {
+//조건이 참일때
+//}
+
+//if (조건) {
+//조건이 참
+//} else {
+//혹은 거짓
+//}
+
+//if (조건) {
+//
+//} else if (조건) {
+//
+//} else if (조건) {
+//
+//} else {
+// 조건을 여러개 제공해서 그때 상황마다 맞게 해당 코드들이 실행되도록 만들수도 있음
+//}
+
+//function isPositive(number) {
+//if (number > 0) {
+//return "오소리";
+//}
+//}
+
+//console.log(isPositive(1)); //오소리
+//console.log(isPositive(0)); //undefined
+// 기본적으로 함수는 return키워드를 사용안하면 undefined데이터가 반환되는 구조를 가짐.
+//function isPositive(number) {
+//if (number > 0) {
+//return "오소리";
+//} else {
+//return "바부";
+//}
+//}
+
+//console.log(isPositive(-1)); //바보
+//console.log(isPositive(0));//바보 -->0은 음수가 아니니깐 0인경우에 데이터가 반환되도록 따로 더 만들겠음
+
+//function isPositive(number) {
+//if (number > 0) {
+//return "오소리";
+//} else if (number < 0) {
+//return "바부";
+//} else {
+//return "카와이";
+//}
+//}
+
+//console.log(isPositive(0)); //카와이

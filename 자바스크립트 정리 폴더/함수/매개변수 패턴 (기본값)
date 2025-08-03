@@ -1,0 +1,25 @@
+// **매개변수 패턴(Parameter pattern)**
+
+
+//// 기본값 (Default value)
+
+// function sum(a,b) {
+//   return a + b
+// }
+
+// console.log(sum(1,2))
+// 3
+
+// NaN //이렇게 b라는 변수의 데이터가 아무것도 들어오지않으면 undefiend일거고 더하면 위에서 봤던 예제처럼 NaN이 나옴.
+
+//또 이렇게 b에는 데이터가 없는 상황이다. 데이터가 없을시 사용하라고 기본값을 지정해줄수있다.
+
+// function sum(a,b = 2) {
+//   return a + b
+// }
+// console.log(sum(8))
+//10
+//console.log(sum (3,4))
+//  //7 //a와b의 데이터값이 있는 경우니깐 기본값은 사용되지않음.
+
+ //매개변수에서 equal기호를 사용해서 해당하는 매개변수의 기본값을 지정해줄수있다.

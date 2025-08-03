@@ -1,0 +1,20 @@
+// nullish 병합
+
+//const n = 0;
+
+//const num1 = n || 7;
+
+//console.log(num1); //0
+
+// Nullish 병합 연산자를 사용한 경우
+//const num2 = n ?? 7;
+//console.log(num2); //0
+//null undefined 건너뛰고 만나는 데이터를 반환함, 왼에서 오른쪽 읽음
+//위 주석 예시를 들어볼게용
+//console.log(null ?? 1);
+//console.log(undefined ?? 2);
+//console.log(null ?? undefined);
+// 얘두 마찬가지로 undefined뒤에 피연산자 없어서 얘가 출력된거임
+//console.log(null ?? 1 ?? 2);
+//console.log(false ?? 2 ?? 1);
+//console.log(0 ?? 1 ?? 2);

@@ -1,0 +1,24 @@
+//// 구조 분해 할당 (배열)
+
+
+
+// const fruits = ['apple', 'banana', 'cherry']
+
+// function getSecondItem([, , c]) {
+//   return c
+// }
+
+// console.log(getSecondItem(fruits))
+
+//cherry
+
+// const fruits = ['apple', 'banana', 'cherry']
+// const numbers = [1, 2, 3, 4, 5, 6, 7]
+
+// function getSecondItem([, , c]) {
+//   return c
+// }
+
+//console.log(getSecondItem(fruits))
+// console.log(getSecondItem(numbers))
+// 3
