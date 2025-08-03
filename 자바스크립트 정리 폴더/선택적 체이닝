@@ -1,0 +1,47 @@
+// ***선택적 체이닝***
+
+//const user = {}
+
+//console.log(user.name) //undefined
+
+// ** null **은 점 표기법 자체를 사용할 수 없음
+
+// const user = null;
+// console.log(user.name); // Uncaught TypeError: Cannot read properties of null (reading 'name') 이 말이 곧 점 표기법에서 null은 사용불가
+
+// null 말고 ** undefiend ** 작성해도 같은 오류가 발생한다.
+// 그래서 null & undefiend 처럼 점 표기법으로 어떤 속성을 조회할 수 없는 이러한 데이터들은 선택적 체이닝을 사용한다.
+
+//const user = null;
+//console.log(user?.name); //undefined
+
+// const userA = {
+//   name: "osori",
+//   age: 22,
+//   adress: {
+//     country: "korea",
+//     city: "seoul",
+//   },
+// };
+// const userB = {
+//   name: "sori",
+//   age: 21,
+// };
+
+//function getCity(user) {
+//return user.adress.city;
+//}
+
+// function getCity(user) {
+//   return user.adress?.city;
+// }
+
+// console.log(getCity(userA));
+// console.log(getCity(userB));
+// seoul &  Uncaught TypeError: Cannot read properties of undefined (reading 'city')
+// 이러면 userB에는 adress 객체데이터가 없어서 읽을수 없어 오류가 발생
+// address가 undifined라는 데이터에서 점 표기법을 사용하는 것이 가능하지않아서 에러가 남 그래서 선택적 체이닝을사용
+//물음표 기호를 앞에다가 붙여서 혹시 이 address가 자바스크립트의 null undifined라면 뒤쪽의 내용을 실행하지 않고 undefiend란 데이터만 반원하도록 하는것
+// 그래서 userB에는 undefined가 뜰 것이다.
+// seoul
+// undefined
