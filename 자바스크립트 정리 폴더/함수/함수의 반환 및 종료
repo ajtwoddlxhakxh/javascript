@@ -1,0 +1,70 @@
+// **함수의 반환 및 종료**
+
+// function hello() {
+//   return 'hi!'
+// }
+
+// console.log(hello())
+//hi!
+
+// function hello() {
+//   return 'hi!'
+// }
+
+// console.log(hello)
+
+// 출력부분
+
+//ƒ hello() {
+//   return 'hi!'
+// }
+
+//return키워드는 함수내부에서 함수 밖으로 데이터를 반환하는 것뿐만 아니고 함수의 동작을 멈추는 역할도 함.
+//그래서 return키워드가 나왔으면 그 다음에 작성되는 코드는 동작하지않는다.
+
+// function hello() {
+//    return 'hi!'
+//    console.log('wow')
+// }
+
+//  console.log(hello())
+//hi!
+
+//만약 return키워드 뒤에다가 아무것도 작성하지 않는다면 어떻게 될까
+
+// function hello() {
+//    return
+// }
+
+//  console.log(hello())
+
+ //undefined //undefined는 자바스크립트가 자동으로 데이터를 채우는 용도의 값이라 배움(명시적이지 않고 암시적이다.)
+ //추가로 return키워드를 작성하지않아도 함수가 동작하고 나면 undefined라는 데이터가 나옴.
+
+//  function hello() {
+
+// }
+
+//  console.log(hello())  //undefined
+
+// function plus(num) {
+//   return num + 1
+// }
+
+//console.log(plus(2))  //3
+//console.log(plus(7))  //8
+//console.log(plus()) //NaN 
+//콘솔로그를 통해 plus함수를 호출했고 num매개변수에 데이터값이 없어서 자바스크립트가 자동으로 값을 넣을거고 그 값은 undefiend고 이 값에서 +1을 하지만 숫자로 표기못함 그래서 NaN
+
+// function plus(num) {
+//   if (typeof num !== 'number') {
+//     console.log('숫자를 입력해주세요')
+//     return 0
+//   }
+//   return num + 1
+// }
+
+// console.log(plus())
+
+// [!==] => "값과 타입이 모두 다르면 true
+// 코드 해석: 콘솔로그창 plus함수 호출시 안에 있는 데이터가 우선 if조건에 보내지고 만약 숫자라면 false가 되어 아래 num + 1로 넘어가고 숫자가 아니라면 걸리게되어 0과 숫자를 입력해주세요가 반환되고 함수실행이 끝난다.
