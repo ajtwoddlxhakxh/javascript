@@ -966,3 +966,9 @@ function sum(...rest) {
   }, 0)
 }
 
+console.log(sum(1,2)) //3
+console.log(sum(1,2,3,4)) //10
+console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
+
+//argurments = 유사 배열 객채
+// 따로 지정안해도 함수 내부에서 사용가능한 객체
