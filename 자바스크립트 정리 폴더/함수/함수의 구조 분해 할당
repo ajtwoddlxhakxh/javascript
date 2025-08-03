@@ -1,0 +1,53 @@
+//// 구조 분해 할당(Destructuring assignment)
+
+//  const user = {
+//   name: 'osori',
+//   age: 22
+//  }
+
+//  function getName(user) {
+//   return user.name
+//  }
+
+//  console.log(getName(user))
+
+//osori
+
+//이렇게도 작성은 할수있지만 return키워드 위에다가 const키춰드로 객체 구조 분해 할당 문법을 사용해볼거다
+
+//  const user = {
+//   name: 'osori',
+//   age: 22
+//  }
+
+//  function getName(user) {
+//   const {name} = user
+//   return name
+//  }
+
+
+// function getName({name}) {
+//   return name
+//  }
+
+//  console.log(getName(user))
+
+ //osori
+ //위는 객체 구조 분해와 함수 매개변수 구조 분해를 활용해서 코드를 짧고 가독성을 높인 예시.
+
+//   const user = {
+//   name: 'osori',
+//   age: 22,
+//   email: 'a01024784424@gmail.com'
+//  }
+
+//  function getName({name}) {
+//   return name
+//  }
+// function getEmail ({email = '이메일을 입력ㄱㄱㄱ'}) {
+//   return email
+// }
+
+// console.log(getEmail(user))
+
+//const user 변수안에 email값이 없다면 '이메일을 입력ㄱㄱㄱ'이 출력되고 email값이 있다면 a01024784424@gmail.com이 출력
