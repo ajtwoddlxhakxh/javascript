@@ -938,13 +938,39 @@
 //[] //1,2가 각각 a와b로 할당되어서 전개가 안된 모습
 //(2) [3, 4] //1,2가 a와b로 들어가고 나머지 3,4가 전개된 모습
 
+// function sum(...rest) {
+//   console.log(rest)
+//   return rest.reduce(function (acc, cur) {
+//     return acc + cur
+//   }, 0)
+// }
+
+//console.log(sum(1,2)) //3 , (2) [1, 2]
+//console.log(sum(1,2,3,4)) //10 ,(4) [1, 2, 3, 4]
+
+//console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55 ,(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//<코드 해석>
+//reduce 메소드는 붙어있는 배열 데이터의 아이템 개수만큼 callback 함수를 실행함
+//만약 rest라는 변수가 숫자 1과 2를 가지고 있는 배열데이터라면 이 reduce에 callback함수는 총 2번 호출함.
+//첫번째 호출엔 acc(accumulator=값이 누적된다.) 최초값은 callback함수 뒤에 적은 숫자 ,0인 상태 그래서 처음 반복할때 acc는 숫자 0, 그리고 cur(current= 현재)이건 반복되는 첫번째 아이템에 해당하는 값
+//console.log(sum(1,2)) 이거의 경우 acc는 0 cur은 1임. 이걸 더하면 숫자 1이 나오고 이걸 return키워드로 반환해서 두번째 반복을 진행.
+//이렇게 반환된 숫자 1은 다시 두번째 함수가 반복될 때 acc로 들어가게 됨. cur은 2일테고 더하면 3. 뒤에 더 배열의 아이템이 없어서 반복 X. 
+//최종 값인 3을 반환.
+
+
 function sum(...rest) {
   console.log(rest)
+  console.log(arguments)
   return rest.reduce(function (acc, cur) {
     return acc + cur
   }, 0)
 }
 
-console.log(sum(1,2)) //3
-console.log(sum(1,2,3,4)) //10
-console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
+console.log(sum(1,2)) //3 ,(2) [1, 2], Arguments(2) [1, 2, callee: (...), Symbol(Symbol.iterator): ƒ]
+console.log(sum(1,2,3,4)) //10 ,(4) [1, 2, 3, 4], Arguments(4) [1, 2, 3, 4, callee: (...), Symbol(Symbol.iterator): ƒ]
+console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55 ,(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], Arguments(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, callee: (...), Symbol(Symbol.iterator): ƒ]
+
+//argurments = 유사배열객체
+//이걸쓰면 마치 배열데이터처럼 출력이 되지만 배열데이터는 아님. 
+//arguments는 따로 지정을 안해도 언제든지 함수 내부에서 쓸 수있는 객체이다.
