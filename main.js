@@ -888,4 +888,63 @@
 
 //// 구조 분해 할당 (배열)
 
-const fruits
+
+
+// const fruits = ['apple', 'banana', 'cherry']
+
+// function getSecondItem([, , c]) {
+//   return c
+// }
+
+// console.log(getSecondItem(fruits))
+
+//cherry
+
+// const fruits = ['apple', 'banana', 'cherry']
+// const numbers = [1, 2, 3, 4, 5, 6, 7]
+
+// function getSecondItem([, , c]) {
+//   return c
+// }
+
+//console.log(getSecondItem(fruits))
+// console.log(getSecondItem(numbers))
+// 3
+
+
+//// 나머지 매개변수(Rest parameter)
+
+// function sum(...rest) {
+//   console.log(rest)
+// }
+
+// console.log(sum(1,2))
+// console.log(sum(1,2,3,4))
+
+// (2) [1, 2] undefined
+
+// (4) [1, 2, 3, 4] undefined
+
+//undefined는 함수 속에서 return키워드가 없으면 기본적으로 undefinedr가 반환됨.
+//다른 형태도 봐보자
+
+// function sum(a,b,...rest) {
+//   console.log(rest)
+// }
+
+// console.log(sum(1,2))
+// console.log(sum(1,2,3,4))
+
+//[] //1,2가 각각 a와b로 할당되어서 전개가 안된 모습
+//(2) [3, 4] //1,2가 a와b로 들어가고 나머지 3,4가 전개된 모습
+
+function sum(...rest) {
+  console.log(rest)
+  return rest.reduce(function (acc, cur) {
+    return acc + cur
+  }, 0)
+}
+
+console.log(sum(1,2)) //3
+console.log(sum(1,2,3,4)) //10
+console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
