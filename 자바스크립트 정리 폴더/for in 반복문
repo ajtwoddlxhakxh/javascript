@@ -1,0 +1,31 @@
+// **for in 반복문**
+
+// const user = {
+//   name: "osori",
+//   age: 22,
+//   isValid: true,
+//   email: "a01024784424@gmail.com",
+// };
+
+//for (const key in user) {
+//console.log(key);
+//main.js:565 isValid
+// main.js:568 true
+// main.js:565 email
+// main.js:568 a01024784424@gmail.com
+//console.log(user[key]);
+//main.js:565 name
+// main.js:568 osori
+// main.js:565 age
+// main.js:568 22
+//}
+
+// console.log(user.name);
+// console.log(user.age);
+
+// console.log(user["name"]);
+//console.log(user[key]); //main.js:581  Uncaught ReferenceError: key is not defined at main.js:581:18 key가 정의안되서 에러가 남 그래서 키를 정의 해준 위에선 에러없이 작동
+// 여기서 헷갈린점
+// '[]'대괄호 어떨때 사용해야하는지
+// 객체 속성 접근, 배열 요소 접근, 문자열 문자 접근 시 사용가능
+//map, set은 대괄호 XX
