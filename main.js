@@ -219,29 +219,29 @@
 //const user = null;
 //console.log(user?.name); //undefined
 
-const userA = {
-  name: "osori",
-  age: 22,
-  adress: {
-    country: "korea",
-    city: "seoul",
-  },
-};
-const userB = {
-  name: "sori",
-  age: 21,
-};
+// const userA = {
+//   name: "osori",
+//   age: 22,
+//   adress: {
+//     country: "korea",
+//     city: "seoul",
+//   },
+// };
+// const userB = {
+//   name: "sori",
+//   age: 21,
+// };
 
 //function getCity(user) {
 //return user.adress.city;
 //}
 
-function getCity(user) {
-  return user.adress?.city;
-}
+// function getCity(user) {
+//   return user.adress?.city;
+// }
 
-console.log(getCity(userA));
-console.log(getCity(userB));
+// console.log(getCity(userA));
+// console.log(getCity(userB));
 // seoul &  Uncaught TypeError: Cannot read properties of undefined (reading 'city')
 // 이러면 userB에는 adress 객체데이터가 없어서 읽을수 없어 오류가 발생
 // address가 undifined라는 데이터에서 점 표기법을 사용하는 것이 가능하지않아서 에러가 남 그래서 선택적 체이닝을사용
@@ -633,6 +633,17 @@ console.log(getCity(userB));
 // main.js:622 1
 // main.js:622 2
 // main.js:622 3
+ 
+
+
+
+
+
+
+
+
+
+
 
 // **함수 (FUnction)**
 
@@ -645,7 +656,7 @@ console.log(getCity(userB));
 
 //함수 선언문과 함수 표현식은 생김새가 다른게 아니고 호이스팅이라는 개념에서 차이점이 발생함
 
-//호이스팅
+// 호이스팅
 
 // function hello() {
 //   console.log("안녕");
@@ -669,8 +680,212 @@ console.log(getCity(userB));
 //호이스팅이라는 것은 함수가 선언되어져 있는 부분을 코드의 최상단으로 끌어올리는 현상
 // 그래서 함수 선언문은 어디에 작성하든지 상관없이 호출이 가능함
 
-hello();
+// hello();
 
-const hello = function () {
-  console.log("안녕");
-};
+// const hello = function () {
+//   console.log("안녕");
+// };
+
+//Uncaught ReferenceError: Cannot access 'hello' before initialization at main.js:672:1
+//hello()함수가 호출될때 아직 hello함수가 만들어지기전인데 hello함수를 호출하고 있다는거임
+//이렇게 표현식같은 경우에는 호이스팅 현상 XX
+
+// 함수의 표현과 선언은 기본적으로 같은 함수를 만드는 행위지만 서로 호이스팅의 발생 유무 차이가 있다는걸 알아야 함.
+
+//  hello();
+
+//  const world = function hello() {
+//   console.log('hi')
+//  }
+
+ // main.js:684  Uncaught ReferenceError: hello is not defined
+//hello라는 함수는 정의가 되어있지않다.
+// 우리가 할당연산자(=)를 통해 함수를 표현식으로 만들게 되면 기명함수라도 기존 이름은 제거되고 새롭게 world라는 이름을 사용해야함.
+
+// 수정해보자
+
+//  const world = function hello() {
+//   console.log('hi')
+//  }
+
+//  world();
+
+//hi
+
+
+
+
+
+
+
+
+// **함수의 반환 및 종료**
+
+// function hello() {
+//   return 'hi!'
+// }
+
+// console.log(hello())
+//hi!
+
+// function hello() {
+//   return 'hi!'
+// }
+
+// console.log(hello)
+
+// 출력부분
+
+//ƒ hello() {
+//   return 'hi!'
+// }
+
+//return키워드는 함수내부에서 함수 밖으로 데이터를 반환하는 것뿐만 아니고 함수의 동작을 멈추는 역할도 함.
+//그래서 return키워드가 나왔으면 그 다음에 작성되는 코드는 동작하지않는다.
+
+// function hello() {
+//    return 'hi!'
+//    console.log('wow')
+// }
+
+//  console.log(hello())
+//hi!
+
+//만약 return키워드 뒤에다가 아무것도 작성하지 않는다면 어떻게 될까
+
+// function hello() {
+//    return
+// }
+
+//  console.log(hello())
+
+ //undefined //undefined는 자바스크립트가 자동으로 데이터를 채우는 용도의 값이라 배움(명시적이지 않고 암시적이다.)
+ //추가로 return키워드를 작성하지않아도 함수가 동작하고 나면 undefined라는 데이터가 나옴.
+
+//  function hello() {
+
+// }
+
+//  console.log(hello())  //undefined
+
+// function plus(num) {
+//   return num + 1
+// }
+
+//console.log(plus(2))  //3
+//console.log(plus(7))  //8
+//console.log(plus()) //NaN 
+//콘솔로그를 통해 plus함수를 호출했고 num매개변수에 데이터값이 없어서 자바스크립트가 자동으로 값을 넣을거고 그 값은 undefiend고 이 값에서 +1을 하지만 숫자로 표기못함 그래서 NaN
+
+// function plus(num) {
+//   if (typeof num !== 'number') {
+//     console.log('숫자를 입력해주세요')
+//     return 0
+//   }
+//   return num + 1
+// }
+
+// console.log(plus())
+
+// [!==] => "값과 타입이 모두 다르면 true
+// 코드 해석: 콘솔로그창 plus함수 호출시 안에 있는 데이터가 우선 if조건에 보내지고 만약 숫자라면 false가 되어 아래 num + 1로 넘어가고 숫자가 아니라면 걸리게되어 0과 숫자를 입력해주세요가 반환되고 함수실행이 끝난다.
+
+
+
+
+
+
+
+// **매개변수 패턴(Parameter pattern)**
+
+
+//// 기본값 (Default value)
+
+// function sum(a,b) {
+//   return a + b
+// }
+
+// console.log(sum(1,2))
+// 3
+
+// NaN //이렇게 b라는 변수의 데이터가 아무것도 들어오지않으면 undefiend일거고 더하면 위에서 봤던 예제처럼 NaN이 나옴.
+
+//또 이렇게 b에는 데이터가 없는 상황이다. 데이터가 없을시 사용하라고 기본값을 지정해줄수있다.
+
+// function sum(a,b = 2) {
+//   return a + b
+// }
+// console.log(sum(8))
+//10
+//console.log(sum (3,4))
+//  //7 //a와b의 데이터값이 있는 경우니깐 기본값은 사용되지않음.
+
+ //매개변수에서 equal기호를 사용해서 해당하는 매개변수의 기본값을 지정해줄수있다.
+
+
+
+
+ //// 구조 분해 할당(Destructuring assignment)
+
+//  const user = {
+//   name: 'osori',
+//   age: 22
+//  }
+
+//  function getName(user) {
+//   return user.name
+//  }
+
+//  console.log(getName(user))
+
+//osori
+
+//이렇게도 작성은 할수있지만 return키워드 위에다가 const키춰드로 객체 구조 분해 할당 문법을 사용해볼거다
+
+//  const user = {
+//   name: 'osori',
+//   age: 22
+//  }
+
+//  function getName(user) {
+//   const {name} = user
+//   return name
+//  }
+
+
+// function getName({name}) {
+//   return name
+//  }
+
+//  console.log(getName(user))
+
+ //osori
+ //위는 객체 구조 분해와 함수 매개변수 구조 분해를 활용해서 코드를 짧고 가독성을 높인 예시.
+
+//   const user = {
+//   name: 'osori',
+//   age: 22,
+//   email: 'a01024784424@gmail.com'
+//  }
+
+//  function getName({name}) {
+//   return name
+//  }
+// function getEmail ({email = '이메일을 입력ㄱㄱㄱ'}) {
+//   return email
+// }
+
+// console.log(getEmail(user))
+
+//const user 변수안에 email값이 없다면 '이메일을 입력ㄱㄱㄱ'이 출력되고 email값이 있다면 a01024784424@gmail.com이 출력
+
+
+
+
+
+
+
+
+//// 구조 분해 할당 (배열)
+
+const fruits
