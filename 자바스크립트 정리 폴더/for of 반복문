@@ -1,0 +1,67 @@
+// ** for of 반복문 **
+
+// const fruits = ["apple", "banana", "cherry"];
+
+// for (let i = 0; i < fruits.length; i += 1) {
+//   console.log(fruits[i]);
+// }
+
+// main.js:429 apple
+// main.js:429 banana
+// main.js:429 cherry
+
+// const fruits = ["apple", "banana", "cherry"];
+
+// for (const a of fruits) {
+//   console.log(a);
+// }
+// main.js:439 apple
+// main.js:439 banana
+// main.js:439 cherry
+
+// const users = [
+//   {
+//     name: "osori",
+//     age: 22,
+//   },
+//   {
+//     name: "sori",
+//     age: 20,
+//   },
+//   {
+//     name: "ori",
+//     age: 21,
+//   },
+// ];
+
+// for (let i = 0; i < users.length; i += 1) {
+//   console.log(users[i]);
+// }
+
+// for (const user of users) {
+//   console.log(user);
+// }
+// 출력결과는 모두 객체이다 그래서 점표기법을 사용가능
+
+// const users = [
+//   {
+//     name: "osori",
+//     age: 22,
+//   },
+//   {
+//     name: "sori",
+//     age: 20,
+//   },
+//   {
+//     name: "ori",
+//     age: 21,
+//   },
+// ];
+
+// for (let i = 0; i < users.length; i += 1) {
+//   console.log(users[i].name);
+// }
+
+// for (const user of users) {
+//   console.log(user);
+// }
