@@ -1,0 +1,24 @@
+// **화살표 함수 (Arrow function)**
+
+// function sum() {}
+// const sum = function () {}
+
+// const sum = () => {}
+
+// function sum(a,b) {
+//     return a+b
+// }
+//이걸 화살표 함수로 바꿔보자
+
+// const sum = (a,b) => {
+//     return a + b
+// }
+
+// console.log(sum(1,2)) //3
+// console.log(sum(19,1)) //20
+
+// const sum = (a,b) => a+b
+
+// console.log(sum(1,2)) //3
+
+//화살표 함수를 이렇게 한줄로 작성가능
