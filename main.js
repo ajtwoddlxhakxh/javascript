@@ -972,3 +972,238 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 
 //argurments = 유사 배열 객채
 // 따로 지정안해도 함수 내부에서 사용가능한 객체
+
+
+// **화살표 함수 (Arrow function)**
+
+// function sum() {}
+// const sum = function () {}
+
+// const sum = () => {}
+
+// function sum(a,b) {
+//     return a+b
+// }
+//이걸 화살표 함수로 바꿔보자
+
+// const sum = (a,b) => {
+//     return a + b
+// }
+
+// console.log(sum(1,2)) //3
+// console.log(sum(19,1)) //20
+
+// const sum = (a,b) => a+b
+
+// console.log(sum(1,2)) //3
+
+//화살표 함수를 이렇게 한줄로 작성가능
+
+
+
+
+
+
+//// **화살표 함수의 다양한 패턴**
+
+// const a = () => {}
+
+// //const b = () => {}
+// // 만약 매개변수가 하나라면 매개변수를 감싸고 있는 소괄호 생략 가능.
+// //ex)
+// const b = x => {}
+
+// const c = (x,y) => {}
+
+// const d = x => {return x * x }
+// // 중괄호에 return 키워드로 시작하면 중괄호 랑 return키워드 생략가능!
+// const e = x => x * x
+
+// const f = x => {
+//     console.log(x * x)
+//     return x * x
+// }
+// console.log(f(2)) //4
+// 이 경우는 console.log가 먼저 나와 생략 불가능
+
+// const g = ()
+
+ => {return {a:1}}
+// const h = () => { a: 1} //로 고칠수 있지만 이건 틀렷다. 코드 범위를 나타내는 괄호와 객체데이터 리터럴 방식의 괄호가 같아서 문법이 잘못됌
+// const h = () => ({a : 1})
+
+// const i = () => { return [1, 2, 3] }
+// const j = () => [1, 2, 3]
+// const [a, b, c] = [1, 2, 3]
+
+// console.log (j()[0])
+
+
+
+
+
+// **즉시실행함수(IIFE, Immediately-Invoked Function Expression)
+
+// const a = 7
+
+// const double = () => {
+//     console.log(a * 2)
+// }
+// double() 
+// //14
+
+// ;(() => {
+//     console.log(a * 2)
+// })() 
+//14
+
+
+// **즉시실행함수 다양한 형태**
+
+
+// (1)    ;(() => {})()       // (F)()
+// (2)    ;(function () {})() // (F)()
+// (3)    ;(function () {}()) // (F())
+// (4)    ;!function () {}()  // !F()
+// (5)    ;+function () {}()  // +F()
+
+
+    // ;(() => {console.log(a * 2)})()       // (F)()
+    // ;(function () {console.log(a * 2)})() // (F)()
+    // ;(function () {console.log(a * 2)}()) // (F())
+    // ;!function () {console.log(a * 2)}()  // !F()
+    // ;+function () {console.log(a * 2)}()  // +F()
+
+
+//**예제**
+
+// ;((a,b) => {
+//     console.log(a)
+//     console.log(b)
+// })(1,2)
+
+//두번째 소괄호로 들어가는 각각의 데이터들을 즉시 실행하는 해당함수에 매개변수로 전달 할 수있음.
+
+// 콜백 (callback)
+
+//함수가 실행될 때 인수로 들어가는 또 하나의 함수를 우리는 콜백이라고 부른다.
+
+// const a = () => {
+//     console.log('A')
+// }
+// const b = () => {
+//     console.log('b')
+// }
+
+// a(b)
+
+// A
+
+// <코드해석>
+// 함수a를 호출하고 b라는 함수 데이터가 인수로 들어간다.
+//변수a는 호출당했고 인수로 b가들어가도 A만을 출력(매개변수없이 선언되어서)
+//
+
+//-------------------------------------------------------------------------------
+
+// **헷갈리는거 잡고 가자.**
+// const a = () => {} 자 변수 a속 함수가 있는 꼴
+// 이때 변수a는 매개변수가 없이 선언되었어. 괄호() 안에 아무것도 없지. 그래서 ()안에 인수로 뭘 받아도 무시.
+
+// const greet = (name) => {
+//     console.log("안녕, " + name);
+// };
+
+//얘는 매개변수가 있는 변수 속 함수. greet라는 변수속 기명함수의 매개변수가 name으로 들어갔지
+//그래서 호출해보면 greet('osori') ---> 안녕, osori 
+
+//--------------------------------------------------------------------------------
+
+
+// const a = callback => {
+//     console.log('A')
+//     callback()
+// }
+// const b = () => {
+//     console.log('B')
+// }
+
+// a(b)
+// A
+// B
+
+//결국 callback은 함수가 실행될 때 이렇게 인수로 넣어주는 개념으로 
+//a라는 함수가 호출될 때 b는 콜백이라는 이름의 매개변수로 들어가고 언제든지 소괄호를 열고 닫아서 실행이 가능
+// 그 소괄호는 const b = () => {.......} 속 ()를 말함.
+// 그래서 결과값이 A,B 둘다 나온것.
+
+//CALLBACK = "함수가 실행될때 매개변수로 들어가 그 함수속에서 매개변수로 들어간 값의 함수를 실행함"
+
+// const sum = (a, b) => a + b
+
+// console.log(sum(1, 2)) //3
+
+//여기서 더 나아가 1초 뒤에 값을 반환하는 코드를 만들어보겠다
+
+// const sum = (a, b, c) => {
+//     setTimeout(() => {
+//       c(a + b)
+//     },1000)
+// }
+
+// sum(1, 2, value => {
+//     console.log(value)
+// })
+
+// 3
+
+// <코드해석>
+// sum 함수가 호출되고, a = 1, b = 2, c = value => { console.log(value) } 가 인수로 들어감
+// setTimeout은 비동기 함수로, 내부에 있는 콜백 함수가 1초(1000ms) 뒤에 실행됨
+// 콜백 함수 안에서 c(a + b) 실행 → 즉, c(3)
+// c는 위에서 넘긴 함수(value => console.log(value)) 이므로,
+// 결국 1초 뒤에 console.log(3) 실행됨
+
+
+
+//callback을 활용해서 이미지 로드를 기다릴 수 있는 예제
+
+// https://www.gstatic.com/webp/gallery/4.jpg
+
+
+const loadImage = (url, callback) => {
+    const imgEL = document.createElement('img')
+    imgEL.src = url
+    imgEL.addEventListener('load', () => {
+        setTimeout(() => {
+            callback(imgEL)
+        }, 1000)
+    })
+}
+
+const containerEl = document.querySelector('.container')
+loadImage('https://www.gstatic.com/webp/gallery/4.jpg', (imgEL) => {
+    containerEl.innerHTML = ''
+    containerEl.append(imgEL)
+})
+
+// 첨 보는 태그들 or 코드들
+
+//loadImage , document, createElement, imgEl, containerEl, document.QuerySelector,
+// containerEl.innerHTML, containerEl.append
+
+//loadImage : 그냥 함수 선언명
+//document : 웹페이지 전체 문서를 나타내는 객체(HTML 전체)
+//createElement : 얜 혼자 못쓰고 document.create.Element(...)으로 객체와 사용해야함. 새로운 요소를 만듦
+//imgEl : 만든 <img>태그를 변수imgEl에 담은 것 (나중에 src를 넣을수 있음)
+//containerEl : HTML에서 <const containerEl = document.querySelector('.container')> .container라는 클래스를 가진 요소를 찾아서 변수에 담는것.
+//html속 <div class="container"></div> 이걸 자바스크립트에서 쓰고 싶을때 containerEl을 써 라는 의미
+//document.querySelector : css선택자처럼 .클래스명, #아이디, 태그명으로 html 요소를 찾는 함수
+//containerEl.innerHTML = '' : .container 안의 내용 비우기
+//containerEl.append(imgEl) : document.createElement로 만든 HTML을 실제 화면에 붙여주는 역할
+//append : HTML 요소를 다른 요소 안에 붙이는 역할
+
+//<코드해석>
+
+// 자 이미지를 로드하면 imgEL이 콜백되서 html안에 img태그가 생성되고 태그안에 url이 저장되는데
+//이 사진이 로딩되면 1초뒤 이미지가 웹에 생성.
