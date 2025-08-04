@@ -1,0 +1,109 @@
+// 콜백 (callback)
+
+//함수가 실행될 때 인수로 들어가는 또 하나의 함수를 우리는 콜백이라고 부른다.
+
+// const a = () => {
+//     console.log('A')
+// }
+// const b = () => {
+//     console.log('b')
+// }
+
+// a(b)
+
+// A
+
+// <코드해석>
+// 함수a를 호출하고 b라는 함수 데이터가 인수로 들어간다.
+//변수a는 호출당했고 인수로 b가들어가도 A만을 출력(매개변수없이 선언되어서)
+//
+
+//-------------------------------------------------------------------------------
+
+// **헷갈리는거 잡고 가자.**
+// const a = () => {} 자 변수 a속 함수가 있는 꼴
+// 이때 변수a는 매개변수가 없이 선언되었어. 괄호() 안에 아무것도 없지. 그래서 ()안에 인수로 뭘 받아도 무시.
+
+// const greet = (name) => {
+//     console.log("안녕, " + name);
+// };
+
+//얘는 매개변수가 있는 변수 속 함수. greet라는 변수속 기명함수의 매개변수가 name으로 들어갔지
+//그래서 호출해보면 greet('osori') ---> 안녕, osori 
+
+//--------------------------------------------------------------------------------
+
+
+// const a = callback => {
+//     console.log('A')
+//     callback()
+// }
+// const b = () => {
+//     console.log('B')
+// }
+
+// a(b)
+// A
+// B
+
+//결국 callback은 함수가 실행될 때 이렇게 인수로 넣어주는 개념으로 
+//a라는 함수가 호출될 때 b는 콜백이라는 이름의 매개변수로 들어가고 언제든지 소괄호를 열고 닫아서 실행이 가능
+// 그 소괄호는 const b = () => {.......} 속 ()를 말함.
+// 그래서 결과값이 A,B 둘다 나온것.
+
+//CALLBACK = "함수가 실행될때 매개변수로 들어가 그 함수속에서 매개변수로 들어간 값의 함수를 실행함"
+
+// const sum = (a, b) => a + b
+
+// console.log(sum(1, 2)) //3
+
+//여기서 더 나아가 1초 뒤에 값을 반환하는 코드를 만들어보겠다
+
+// const sum = (a, b, c) => {
+//     setTimeout(() => {
+//       c(a + b)
+//     },1000)
+// }
+
+// sum(1, 2, value => {
+//     console.log(value)
+// })
+
+// 3
+
+// <코드해석>
+// sum 함수가 호출되고, a = 1, b = 2, c = value => { console.log(value) } 가 인수로 들어감
+// setTimeout은 비동기 함수로, 내부에 있는 콜백 함수가 1초(1000ms) 뒤에 실행됨
+// 콜백 함수 안에서 c(a + b) 실행 → 즉, c(3)
+// c는 위에서 넘긴 함수(value => console.log(value)) 이므로,
+// 결국 1초 뒤에 console.log(3) 실행됨
+
+
+
+//callback을 활용해서 이미지 로드를 기다릴 수 있는 예제
+
+// https://www.gstatic.com/webp/gallery/4.jpg
+
+
+const loadImage = (url, callback) => {
+    const imgEL = document.createElement('img')
+    imgEL.src = url
+    imgEL.addEventListener('load', () => {
+        setTimeout(() => {
+            callback(imgEL)
+        }, 1000)
+    })
+}
+
+const containerEl = document.querySelector('.container')
+loadImage('https://www.gstatic.com/webp/gallery/4.jpg', (imgEL) => {
+    containerEl.innerHTML = ''
+    containerEl.append(imgEL)
+})
+
+
+
+//<코드해석>
+
+// 자 이미지를 로드하면 imgEL이 콜백되서 html안에 img태그가 생성되고 태그안에 url이 저장되는데
+//이 사진이 로딩되면 1초뒤 이미지가 웹에 생성.
