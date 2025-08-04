@@ -1,0 +1,31 @@
+//// **화살표 함수의 다양한 패턴**
+
+// const a = () => {}
+
+// //const b = () => {}
+// // 만약 매개변수가 하나라면 매개변수를 감싸고 있는 소괄호 생략 가능.
+// //ex)
+// const b = x => {}
+
+// const c = (x,y) => {}
+
+// const d = x => {return x * x }
+// // 중괄호에 return 키워드로 시작하면 중괄호 랑 return키워드 생략가능!
+// const e = x => x * x
+
+// const f = x => {
+//     console.log(x * x)
+//     return x * x
+// }
+// console.log(f(2)) //4
+// 이 경우는 console.log가 먼저 나와 생략 불가능
+
+// const g = () => {return {a:1}}
+// const h = () => { a: 1} //로 고칠수 있지만 이건 틀렷다. 코드 범위를 나타내는 괄호와 객체데이터 리터럴 방식의 괄호가 같아서 문법이 잘못됌
+// const h = () => ({a : 1})
+
+// const i = () => { return [1, 2, 3] }
+// const j = () => [1, 2, 3]
+// const [a, b, c] = [1, 2, 3]
+
+// console.log (j()[0])
