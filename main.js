@@ -632,17 +632,6 @@
 // main.js:622 1
 // main.js:622 2
 // main.js:622 3
- 
-
-
-
-
-
-
-
-
-
-
 
 // **함수 (FUnction)**
 
@@ -697,7 +686,7 @@
 //   console.log('hi')
 //  }
 
- // main.js:684  Uncaught ReferenceError: hello is not defined
+// main.js:684  Uncaught ReferenceError: hello is not defined
 //hello라는 함수는 정의가 되어있지않다.
 // 우리가 할당연산자(=)를 통해 함수를 표현식으로 만들게 되면 기명함수라도 기존 이름은 제거되고 새롭게 world라는 이름을 사용해야함.
 
@@ -710,13 +699,6 @@
 //  world();
 
 //hi
-
-
-
-
-
-
-
 
 // **함수의 반환 및 종료**
 
@@ -758,8 +740,8 @@
 
 //  console.log(hello())
 
- //undefined //undefined는 자바스크립트가 자동으로 데이터를 채우는 용도의 값이라 배움(명시적이지 않고 암시적이다.)
- //추가로 return키워드를 작성하지않아도 함수가 동작하고 나면 undefined라는 데이터가 나옴.
+//undefined //undefined는 자바스크립트가 자동으로 데이터를 채우는 용도의 값이라 배움(명시적이지 않고 암시적이다.)
+//추가로 return키워드를 작성하지않아도 함수가 동작하고 나면 undefined라는 데이터가 나옴.
 
 //  function hello() {
 
@@ -773,7 +755,7 @@
 
 //console.log(plus(2))  //3
 //console.log(plus(7))  //8
-//console.log(plus()) //NaN 
+//console.log(plus()) //NaN
 //콘솔로그를 통해 plus함수를 호출했고 num매개변수에 데이터값이 없어서 자바스크립트가 자동으로 값을 넣을거고 그 값은 undefiend고 이 값에서 +1을 하지만 숫자로 표기못함 그래서 NaN
 
 // function plus(num) {
@@ -789,14 +771,7 @@
 // [!==] => "값과 타입이 모두 다르면 true
 // 코드 해석: 콘솔로그창 plus함수 호출시 안에 있는 데이터가 우선 if조건에 보내지고 만약 숫자라면 false가 되어 아래 num + 1로 넘어가고 숫자가 아니라면 걸리게되어 0과 숫자를 입력해주세요가 반환되고 함수실행이 끝난다.
 
-
-
-
-
-
-
 // **매개변수 패턴(Parameter pattern)**
-
 
 //// 기본값 (Default value)
 
@@ -819,12 +794,9 @@
 //console.log(sum (3,4))
 //  //7 //a와b의 데이터값이 있는 경우니깐 기본값은 사용되지않음.
 
- //매개변수에서 equal기호를 사용해서 해당하는 매개변수의 기본값을 지정해줄수있다.
+//매개변수에서 equal기호를 사용해서 해당하는 매개변수의 기본값을 지정해줄수있다.
 
-
-
-
- //// 구조 분해 할당(Destructuring assignment)
+//// 구조 분해 할당(Destructuring assignment)
 
 //  const user = {
 //   name: 'osori',
@@ -851,15 +823,14 @@
 //   return name
 //  }
 
-
 // function getName({name}) {
 //   return name
 //  }
 
 //  console.log(getName(user))
 
- //osori
- //위는 객체 구조 분해와 함수 매개변수 구조 분해를 활용해서 코드를 짧고 가독성을 높인 예시.
+//osori
+//위는 객체 구조 분해와 함수 매개변수 구조 분해를 활용해서 코드를 짧고 가독성을 높인 예시.
 
 //   const user = {
 //   name: 'osori',
@@ -878,16 +849,7 @@
 
 //const user 변수안에 email값이 없다면 '이메일을 입력ㄱㄱㄱ'이 출력되고 email값이 있다면 a01024784424@gmail.com이 출력
 
-
-
-
-
-
-
-
 //// 구조 분해 할당 (배열)
-
-
 
 // const fruits = ['apple', 'banana', 'cherry']
 
@@ -909,7 +871,6 @@
 //console.log(getSecondItem(fruits))
 // console.log(getSecondItem(numbers))
 // 3
-
 
 //// 나머지 매개변수(Rest parameter)
 
@@ -954,25 +915,23 @@
 //만약 rest라는 변수가 숫자 1과 2를 가지고 있는 배열데이터라면 이 reduce에 callback함수는 총 2번 호출함.
 //첫번째 호출엔 acc(accumulator=값이 누적된다.) 최초값은 callback함수 뒤에 적은 숫자 ,0인 상태 그래서 처음 반복할때 acc는 숫자 0, 그리고 cur(current= 현재)이건 반복되는 첫번째 아이템에 해당하는 값
 //console.log(sum(1,2)) 이거의 경우 acc는 0 cur은 1임. 이걸 더하면 숫자 1이 나오고 이걸 return키워드로 반환해서 두번째 반복을 진행.
-//이렇게 반환된 숫자 1은 다시 두번째 함수가 반복될 때 acc로 들어가게 됨. cur은 2일테고 더하면 3. 뒤에 더 배열의 아이템이 없어서 반복 X. 
+//이렇게 반환된 숫자 1은 다시 두번째 함수가 반복될 때 acc로 들어가게 됨. cur은 2일테고 더하면 3. 뒤에 더 배열의 아이템이 없어서 반복 X.
 //최종 값인 3을 반환.
 
+// function sum(...rest) {
+//   console.log(rest);
+//   console.log(arguments);
+//   return rest.reduce(function (acc, cur) {
+//     return acc + cur;
+//   }, 0);
+// }
 
-function sum(...rest) {
-  console.log(rest)
-  console.log(arguments)
-  return rest.reduce(function (acc, cur) {
-    return acc + cur
-  }, 0)
-}
-
-console.log(sum(1,2)) //3
-console.log(sum(1,2,3,4)) //10
-console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
+// console.log(sum(1, 2)); //3
+// console.log(sum(1, 2, 3, 4)); //10
+// console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)); //55
 
 //argurments = 유사 배열 객채
 // 따로 지정안해도 함수 내부에서 사용가능한 객체
-
 
 // **화살표 함수 (Arrow function)**
 
@@ -999,11 +958,6 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 
 //화살표 함수를 이렇게 한줄로 작성가능
 
-
-
-
-
-
 //// **화살표 함수의 다양한 패턴**
 
 // const a = () => {}
@@ -1028,7 +982,7 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 
 // const g = ()
 
- => {return {a:1}}
+//  => {return {a:1}}
 // const h = () => { a: 1} //로 고칠수 있지만 이건 틀렷다. 코드 범위를 나타내는 괄호와 객체데이터 리터럴 방식의 괄호가 같아서 문법이 잘못됌
 // const h = () => ({a : 1})
 
@@ -1038,10 +992,6 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 
 // console.log (j()[0])
 
-
-
-
-
 // **즉시실행함수(IIFE, Immediately-Invoked Function Expression)
 
 // const a = 7
@@ -1049,17 +999,15 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 // const double = () => {
 //     console.log(a * 2)
 // }
-// double() 
+// double()
 // //14
 
 // ;(() => {
 //     console.log(a * 2)
-// })() 
+// })()
 //14
 
-
 // **즉시실행함수 다양한 형태**
-
 
 // (1)    ;(() => {})()       // (F)()
 // (2)    ;(function () {})() // (F)()
@@ -1067,13 +1015,11 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 // (4)    ;!function () {}()  // !F()
 // (5)    ;+function () {}()  // +F()
 
-
-    // ;(() => {console.log(a * 2)})()       // (F)()
-    // ;(function () {console.log(a * 2)})() // (F)()
-    // ;(function () {console.log(a * 2)}()) // (F())
-    // ;!function () {console.log(a * 2)}()  // !F()
-    // ;+function () {console.log(a * 2)}()  // +F()
-
+// ;(() => {console.log(a * 2)})()       // (F)()
+// ;(function () {console.log(a * 2)})() // (F)()
+// ;(function () {console.log(a * 2)}()) // (F())
+// ;!function () {console.log(a * 2)}()  // !F()
+// ;+function () {console.log(a * 2)}()  // +F()
 
 //**예제**
 
@@ -1115,10 +1061,9 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 // };
 
 //얘는 매개변수가 있는 변수 속 함수. greet라는 변수속 기명함수의 매개변수가 name으로 들어갔지
-//그래서 호출해보면 greet('osori') ---> 안녕, osori 
+//그래서 호출해보면 greet('osori') ---> 안녕, osori
 
 //--------------------------------------------------------------------------------
-
 
 // const a = callback => {
 //     console.log('A')
@@ -1132,7 +1077,7 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 // A
 // B
 
-//결국 callback은 함수가 실행될 때 이렇게 인수로 넣어주는 개념으로 
+//결국 callback은 함수가 실행될 때 이렇게 인수로 넣어주는 개념으로
 //a라는 함수가 호출될 때 b는 콜백이라는 이름의 매개변수로 들어가고 언제든지 소괄호를 열고 닫아서 실행이 가능
 // 그 소괄호는 const b = () => {.......} 속 ()를 말함.
 // 그래서 결과값이 A,B 둘다 나온것.
@@ -1164,28 +1109,25 @@ console.log(sum(1,2,3,4,5,6,7,8,9,10)) //55
 // c는 위에서 넘긴 함수(value => console.log(value)) 이므로,
 // 결국 1초 뒤에 console.log(3) 실행됨
 
-
-
 //callback을 활용해서 이미지 로드를 기다릴 수 있는 예제
 
 // https://www.gstatic.com/webp/gallery/4.jpg
 
+// const loadImage = (url, callback) => {
+//   const imgEL = document.createElement("img");
+//   imgEL.src = url;
+//   imgEL.addEventListener("load", () => {
+//     setTimeout(() => {
+//       callback(imgEL);
+//     }, 1000);
+//   });
+// };
 
-const loadImage = (url, callback) => {
-    const imgEL = document.createElement('img')
-    imgEL.src = url
-    imgEL.addEventListener('load', () => {
-        setTimeout(() => {
-            callback(imgEL)
-        }, 1000)
-    })
-}
-
-const containerEl = document.querySelector('.container')
-loadImage('https://www.gstatic.com/webp/gallery/4.jpg', (imgEL) => {
-    containerEl.innerHTML = ''
-    containerEl.append(imgEL)
-})
+// const containerEl = document.querySelector(".container");
+// loadImage("https://www.gstatic.com/webp/gallery/4.jpg", (imgEL) => {
+//   containerEl.innerHTML = "";
+//   containerEl.append(imgEL);
+// });
 
 // 첨 보는 태그들 or 코드들
 
@@ -1207,3 +1149,58 @@ loadImage('https://www.gstatic.com/webp/gallery/4.jpg', (imgEL) => {
 
 // 자 이미지를 로드하면 imgEL이 콜백되서 html안에 img태그가 생성되고 태그안에 url이 저장되는데
 //이 사진이 로딩되면 1초뒤 이미지가 웹에 생성.
+
+// **재귀(Recursion)**
+// 하나의 함수에서 그 함수 자기 자신을 다시 내부에서 호출하는 것을 재귀라고 한다.
+
+// const a = () => {
+//     console.log('A');
+//     a();
+// }
+
+// a()
+
+// 이런 재귀는 무한정 함수가 동작하기 때문에 멈춰줘야 한다.
+
+// let i = 0;
+// const a = () => {
+//   console.log("A");
+//   i += 1;
+//   if (i < 4) {
+//     a();
+//   }
+// };
+
+// a();
+
+// A
+// A
+// A
+// A
+
+// <코드해석>
+// 변수 i를 0으로 초기화하고, 함수 a를 정의
+// 함수 a는 "A"를 출력하고 i를 1씩 증가시킴
+// 만약 i가 4보다 작으면, 즉 0, 1, 2일 때는 다시 함수 a를 호출
+// 이렇게 하면 "A"가 총 4번 출력됨
+// 재귀는 반복문처럼 특정 조건을 만족할 때까지 계속해서 함수를 호출하는 방식으로 동작
+// 재귀는 반복문과 비슷한 역할을 하지만, 함수가 자기 자신을 호출하는 방식으로 동작한다.
+
+// 다른 예제
+
+const userA = { name: "a", parent: null };
+const userB = { name: "b", parent: userA };
+const userC = { name: "c", parent: userB };
+const userD = { name: "d", parent: userC };
+
+const getRootUser = (user) => {
+  if (user.parent) {
+    return getRootUser(user.parent);
+  }
+  return user;
+};
+
+console.log(getRootUser(userD)); // { name: 'a', parent: null }
+// <코드해석>
+// userD가 인수로 들어가고 이걸 user라는 매개변수가 받아서 사용하게 됌.
+//
