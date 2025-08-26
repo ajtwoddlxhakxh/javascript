@@ -1188,19 +1188,95 @@
 
 // 다른 예제
 
-const userA = { name: "a", parent: null };
-const userB = { name: "b", parent: userA };
-const userC = { name: "c", parent: userB };
-const userD = { name: "d", parent: userC };
+// const userA = { name: "a", parent: null };
+// const userB = { name: "b", parent: userA };
+// const userC = { name: "c", parent: userB };
+// const userD = { name: "d", parent: userC };
 
-const getRootUser = (user) => {
-  if (user.parent) {
-    return getRootUser(user.parent);
-  }
-  return user;
+// const getRootUser = (user) => {
+//   if (user.parent) {
+//     return getRootUser(user.parent);
+//   }
+//   return user;
+// };
+
+// console.log(getRootUser(userD)); // { name: 'a', parent: null }
+
+// </코드해석>
+// userD는 parent속성에 userC를 가지고 있으니깐 if조건에 걸려서 다시 getRootUser(user.parent)로 넘어감
+// userC가 인수로 들어가고 userB를 parent속성으로 가지고 있으니깐 다시 if조건에 걸려서 getRootUser(user.parent)로 넘어감
+// userB가 인수로 들어가고 userA를 parent속성으로 가지고 있으니깐 다시 if조건에 걸려서 getRootUser(user.parent)로 넘어감
+// userA가 인수로 들어가고 parent속성에 null을 가지고 있으니깐 if조건에 안걸려서 return user;로 넘어감
+// userA가 반환됨
+
+// 함수 스케줄링 (Scheduling a function call)
+
+// setTimeout(() => {
+//   console.log("어지럽당");
+// }, 2000);
+
+// const osori = () => {
+//   console.log("오소리");
+// };
+
+// setTimeout(osori, 3000);
+
+// const osori = () => {
+//   console.log("오소리");
+// };
+
+// const Timeout = setTimeout(osori, 3000);
+// clearTimeout(Timeout);
+
+// const osori = () => {
+//   console.log("오소리");
+// };
+
+// const timeout = setTimeout(osori, 2000);
+// const h1El = document.querySelector("h1");
+// h1El.addEventListener("click", () => {
+//   console.log("뭘 기대한거야! 바보!");
+//   clearTimeout(timeout);
+// });
+
+// const osori = () => {
+//   console.log("오소리");
+// };
+
+// const timeout = setInterval(osori, 2000);
+// const h1El = document.querySelector("h1");
+// h1El.addEventListener("click", () => {
+//   console.log("뭘 기대한거야! 바보!");
+//   clearInterval(timeout);
+// });
+
+// function user() {
+//   return {
+//     firstName: "kawaii",
+//     lastName: "neko",
+//     age: 22,
+//     getFullName() {
+//       return `${this.firstName} ${this.lastName}`;
+//     },
+//   };
+// }
+
+// const lewis = {
+//   firstName: "Lewis",
+//   lastName: "Hamilton",
+// };
+
+// const u = user();
+// console.log(u.getFullName());
+// console.log(u.getFullName.call(lewis));
+
+const timer = {
+  title: "TIMER!",
+  timeout() {
+    console.log(this.title);
+    setTimeout(() => {
+      console.log(this.title);
+    }, 2000);
+  },
 };
-
-console.log(getRootUser(userD)); // { name: 'a', parent: null }
-// <코드해석>
-// userD가 인수로 들어가고 이걸 user라는 매개변수가 받아서 사용하게 됌.
-//
+timer.timeout();
