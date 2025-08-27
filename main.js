@@ -1210,6 +1210,11 @@
 // userA가 반환됨
 
 // 함수 스케줄링 (Scheduling a function call)
+// setTimeout, setInterval
+// setTimeout(콜백함수, 지연시간(밀리초))
+// setInterval(콜백함수, 지연시간(밀리초))
+// setTimeout : 일정 시간이 지난 후에 콜백함수를 실행
+// setInterval : 일정한 간격으로 콜백함수를 반복 실행
 
 // setTimeout(() => {
 //   console.log("어지럽당");
@@ -1250,33 +1255,112 @@
 //   clearInterval(timeout);
 // });
 
-// function user() {
-//   return {
-//     firstName: "kawaii",
-//     lastName: "neko",
-//     age: 22,
-//     getFullName() {
-//       return `${this.firstName} ${this.lastName}`;
-//     },
-//   };
-// }
+// **this**
+// this는 함수가 호출되는 방식에 따라 값이 달라짐
+// 일반 함수에서의 this는 호출 위치에서 정의
+// 화살표 함수에서의 this는 자신이 선언된 함수(렉시컬) 범위에서 정의
 
-// const lewis = {
-//   firstName: "Lewis",
-//   lastName: "Hamilton",
+// const user = {
+//   firstName: "osori",
+//   lastName: "sori",
+//   age: 22,
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
 // };
 
-// const u = user();
-// console.log(u.getFullName());
-// console.log(u.getFullName.call(lewis));
+// console.log(user.getFullName()); //osori sori
 
-const timer = {
-  title: "TIMER!",
-  timeout() {
-    console.log(this.title);
-    setTimeout(() => {
-      console.log(this.title);
-    }, 2000);
-  },
+function user() {
+  return {
+    firstName: "kawaii",
+    lastName: "neko",
+    age: 22,
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  };
+}
+
+const lewis = {
+  firstName: "Lewis",
+  lastName: "Hamilton",
 };
-timer.timeout();
+
+const u = user();
+console.log(u.getFullName());
+console.log(u.getFullName.call(lewis));
+
+// 코드해석
+// user함수를 호출해서 반환된 객체를 u라는 변수에 담음
+// u.getFullName() 호출 시, this는 u 객체를 가리켜 "kawaii neko" 반환
+// u.getFullName.call(lewis) 호출 시, call 메서드를 사용해 this를 lewis 객체로 지정
+// 따라서 "Lewis Hamilton" 반환
+
+// const timer = {
+//   title: "TIMER!",
+//   timeout() {
+//     console.log(this.title);
+//     setTimeout(() => {
+//       console.log(this.title);
+//     }, 2000);
+//   },
+// };
+// timer.timeout();
+
+// ** prototype **
+
+// const fruits = ["apple", "banana", "cherry"];
+// const fruits = new Array("apple", "banana", "cherry");
+
+// console.log(fruits);
+// // (3) ['apple', 'banana', 'cherry']
+// console.log(fruits.length); //3
+// console.log*fruits.includes("banana"); //true
+// console.log*fruits.includes("orange"); //false
+
+// // 자 이렇게 new Array() 생성자 함수를 통해 만든 배열 데이터는 length, includes와 같은 매소드를 사용할 수 있다.
+// // 그리고 length, includes 매소드들은 prototype 속성 혹은 prototype 매소드라고 부른다.
+// // 즉 프로토타입이란 new 키워드를 통해서 만드는 생성자 함수에서 반환된 결과, 위 예시론 fruits라는 하나의 배열 데이터 이걸 다른 말로
+// // 인스턴스라고 부름. 이 인스턴스가 공통적으로 가지고 있는 속성이나 메소드를 프로토타입이라고 부른다.
+// Array.prototype.osori = function () {
+//   console.log(this);
+// }
+
+// fruits.osori();
+// // (3) ['apple', 'banana', 'cherry']
+
+// const osori = {
+//   firstname: 'osori',
+//   lastname: 'sori',
+//   fullname() {
+//     return `${this.firstname} ${this.lastname}`
+//   }
+// }
+// const neko = {
+//   firstname: 'kawaii',
+//   lastname: 'neko',
+// }
+
+// console.log(osori.fullname.call(neko)) //kawaii neko
+// console.log(osori.fullname()) //osori sori
+
+// 이런 방식으로 getFullname이라는 하나의 함수 다른말로 메소드를 만들어서 같은 구조의 여러가지 객체에서 활용을 할수있는데,
+//즉, getFullname을 한번만 만들어서 재활용을 하면 된다. 그런데 재활용하는 코드가 하나밖에 없으면 불편하다. 해당하는
+//메소드를 빌릴때마다 call메소도를 같이 넣어줘야하고 getFullname메소드가 있는 osori객체를 사용해야하기 때문이다.
+// 그래서 이럴때 프로토타입을 사용한다. 프로토타입은 공통적으로 사용하는 속성이나 메소드를 미리 만들어서
+// 객체가 생성될때 자동으로 사용할수있게 하는 방법이다.
+
+// function User(first, last) {
+//   this.firstName = first;
+//   this.lastName = last;
+// }
+
+// User.prototype.getFullName = function () {
+//   return `${this.firstName} ${this.lastName}`;
+// };
+
+// const osori = new User("osori", "sori");
+
+// console.log(osori); //User {firstName: 'osori', lastName: 'sori'}
+// console.log(osori.getFullName()); //osori sori
